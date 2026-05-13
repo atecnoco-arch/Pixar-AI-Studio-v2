@@ -1,0 +1,58 @@
+# 🛡️ Anti-GitHub Protection (Ignore List)
+
+# Secrets and Vault
+VAULT/
+*.txt
+*.json
+!pyrightconfig.json
+!pixar_studio_config.json
+!config.json
+!package.json
+
+# AI Models & Weights (Large Files)
+*.safetensors
+*.ckpt
+*.pth
+*.bin
+*.onnx
+*.weights
+*.pb
+*.h5
+
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.env
+*.log
+
+# Project Folders (Large/Dynamic)
+models/
+assets/
+input/
+output/
+scratch/
+temp/
+
+# Archives & Large Binaries
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.exe
+*.msi
+*.dll
+
+# OS & IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+??????? ???? ???? ??????????? 322 ???/

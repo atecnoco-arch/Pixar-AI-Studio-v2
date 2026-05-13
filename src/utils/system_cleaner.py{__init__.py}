@@ -1,0 +1,24 @@
+import os
+import psutil
+
+class SystemCleaner:
+    @staticmethod
+    def clean_ghosts():
+        """بستن تمام فرآیندهای پایتون به جز فرآیند فعلی برنامه"""
+        current_pid = os.getpid()
+        print(f"شروع عملیات پاکسازی ارواح... (شناسه فعلی: {current_pid})")
+        
+        cleaned_count = 0
+        for proc in psutil.process_iter(['pid', 'name']):
+            try:
+                # اگر فرآیند پایتون بود و خودش نبود
+                if "python" in proc.info['name'].lower() and proc.info['pid'] != current_pid:
+                    proc.kill()
+                    cleaned_count += 1
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                pass
+        
+        if cleaned_count > 0:
+            print(f"--- موفقیت: {cleaned_count} روح سرگردان از رم اخراج شدند! ---")
+        else:
+            print("--- سیستم از قبل تمیز بود. ---")
